@@ -1,23 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Home from './Home';
+import Menu from './Menu';
+import NavBar from './NavBar';
+import { fetchItems, addItem as addItemApi} from './Api';
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  const [menu, setMenu] =useState({
+    snacks: [],
+    drinks: []
+  });
+
+  useEffect(() => {
+    async function getAllItems() {
+      const snacks = await fetchItems("snacks");
+      const drinks = await fetchItems("drinks");
+      setMenu({ drinks, snacks })
+      setIsLoading(false);
+    }
+
+    getAllItems();
+  }, []);
+
+  let { snacks, drinks } = menu;
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+      <NavBar />
+      <Switch>
+        <Route exact path="/">
+          <Home snacks={snacks} drinks={drinks} />
+        </Route>
+
+        <Route exact path="/snacks">
+          <Menu items={drinks} title="Snacks" />
+        </Route>
+
+        <Route exact path="/drinks">
+          <Menu items={drinks} title="Drinks" />
+        </Route>
+
+      </Switch>
+      </BrowserRouter>
+    
     </div>
   );
 }
