@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {Card, CardBody, CardTitle, CardText, ListGroup, ListGroupItem} from 'reactstrap';
+import './Menu.css';
 
 const Menu = ({title, items}) => {
     return (

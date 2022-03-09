@@ -2,6 +2,8 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import {Navbar, Nav, NavItem} from 'reactstrap';
 
+import './NavBar.css';
+
 const NavBar = () => {
     return (
         <Navbar expand="md">
@@ -17,7 +19,7 @@ const NavBar = () => {
                     <NavLink to="/drinks">Drinks</NavLink>
                 </NavItem>
                 <NavItem>
-                    <NavLink to="/add" className="mr-0">Add Item</NavLink>
+                    <NavLink exact to="/add" className="mr-0">Add Item</NavLink>
                 </NavItem>
             </Nav>
         </Navbar>

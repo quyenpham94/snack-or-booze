@@ -8,6 +8,8 @@ import slugify from 'slugify';
 import Item from "./Item";
 import { fetchItems, addItem as addItemApi} from './Api';
 
+import './App.css';
+
 function App() {
   const [isLoading, setIsLoading] = useState(true);
 
