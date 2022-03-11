@@ -3,6 +3,13 @@ import { Link } from 'react-router-dom';
 import {Card, CardBody, CardTitle, CardText, ListGroup, ListGroupItem} from 'reactstrap';
 import './Menu.css';
 
+/** Menu: listing of items (either drinks or snacks)
+ * 
+ * Props:
+ * - items: list of snacks/drinks data objects.
+ * - title: "Snacks" or "Drinks"
+ * 
+ */
 const Menu = ({title, items}) => {
     return (
         <section className='col-md-4'>

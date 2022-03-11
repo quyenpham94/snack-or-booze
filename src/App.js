@@ -8,6 +8,17 @@ import slugify from 'slugify';
 import Item from "./Item";
 import { fetchItems, addItem as addItemApi} from './Api';
 
+/** Snack or Booze main application.
+ * 
+ * Props: (none)
+ * 
+ * State:
+ * - snacks: list of snack data objs -- populated via AJAX call
+ * - drinks: list of drink data objs -- populated via AJAX call
+ * - isloading: bool, has data loaded yet?
+ * 
+ */
+
 import './App.css';
 
 function App() {
@@ -31,6 +42,8 @@ function App() {
     getAllItems();
   }, []);
 
+  /** Call API to add item of type "snacks" or "drinks"; update state */
+
   async function addItem(type, {name, description, recipe, serve}) {
     let id = slugify(name, {lower: true});
     let objData = { id, name, description, recipe, serve };
@@ -41,6 +54,8 @@ function App() {
     }));
   }
 
+  /** Show app frame, navbar, and routes */
+  
   let { snacks, drinks } = menu;
 
   if(!isLoading) {

@@ -1,6 +1,14 @@
 import React from 'react';
 import { Card, CardBody, CardTitle, CardText } from 'reactstrap'; 
 
+/** Homepage
+ * 
+ * Props:
+ * - snacks: list of snacks
+ * - drinks: list of drinks
+ * 
+ */
+
 const Home = ({ snacks, drinks }) => {
     return (
         <section className='col-md-8'>

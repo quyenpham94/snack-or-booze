@@ -4,6 +4,8 @@ import {Navbar, Nav, NavItem} from 'reactstrap';
 
 import './NavBar.css';
 
+/** Top navigation bar for site. */
+
 const NavBar = () => {
     return (
         <Navbar expand="md">

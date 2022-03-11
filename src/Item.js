@@ -2,8 +2,17 @@ import React from 'react';
 import { Redirect, useParams } from 'react-router-dom';
 import { Card, CardBody, CardTitle, CardText } from 'reactstrap';
 
+/** Details for a menu item.
+ * 
+ * Props:
+ * - cantFind: path to redirect to if can't find item with that ID
+ * - items: list of snacks or drinks
+ * 
+ */
+
 const Item = ({ items, cantFind }) => {
     const {id} = useParams();
+    
     let item = items.find(item => item.id === id);
     if (!item) return <Redirect to={cantFind} />;
     
